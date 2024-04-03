@@ -5,7 +5,30 @@ import { motion } from 'framer-motion';
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [activeSection, setActiveSection] = useState('about'); 
+  const [activeSection, setActiveSection] = useState('about'); // Set default active section to 'about'
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Check if screen width is less than or equal to 768px (mobile size)
+    };
+
+    handleResize(); // Call once to set the initial state
+
+    window.addEventListener('resize', handleResize); // Listen for resize events
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Remove the event listener on component unmount
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSetActive = (to) => {
+    setActiveSection(to);
+    toggleMenu(); // Close the menu when a section is clicked
+  };
 
   useEffect(() => {
     const underline = document.getElementById('animated-underline');
@@ -13,26 +36,25 @@ function Navbar() {
 
     const toggleAnimation = () => {
       if (animate) {
-        underline.style.width = '100%'; 
+        underline.style.width = '100%'; // Expand the underline
         setTimeout(() => {
-          underline.style.width = '0%'; 
+          underline.style.width = '0%'; // Shrink the underline after 3 milliseconds
         }, 3000);
       } else {
-        underline.style.width = '0%'; 
+        underline.style.width = '0%'; // Shrink the underline
         setTimeout(() => {
-          underline.style.width = '100%'; 
+          underline.style.width = '100%'; // Expand the underline after 3 milliseconds
         }, 3000);
       }
       animate = !animate;
     };
 
-    toggleAnimation(); 
+    toggleAnimation(); // Start the animation loop
 
-    const interval = setInterval(toggleAnimation, 6000); 
+    const interval = setInterval(toggleAnimation, 6000); // Repeat the animation every 6 milliseconds (3 milliseconds for each animation phase)
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval); // Clear the interval on component unmount
   }, []);
-
 
 
   return (
@@ -52,16 +74,16 @@ function Navbar() {
       <div
         id="animated-underline"
         className="absolute bottom-0 left-0 w-0 h-1 bg-blue-500"
-        style={{ transition: 'width 1s ease-in-out' }} 
+        style={{ transition: 'width 1s ease-in-out' }} // Adjusted transition duration to 1 second for slower animation
       ></div>
     </div>
         </div>
-        {isMobile ? (
+        {isMobile ? ( // If it's a mobile screen
           <div className="md:hidden">
             <motion.button 
               onClick={toggleMenu} 
               className="text-white focus:outline-none"
-              whileTap={{ scale: 0.9 }} 
+              whileTap={{ scale: 0.9 }} // Add motion animation while tapping the button
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                 {isMenuOpen ? (
@@ -139,10 +161,10 @@ function Navbar() {
           </div>
         )}
       </div>
-      {isMobile && isMenuOpen && ( 
+      {isMobile && isMenuOpen && ( // If it's a mobile screen and the menu is open
         <div className="md:hidden flex flex-col items-center justify-center space-y-4">
           <motion.div
-            whileHover={{ scale: 1.1 }} 
+            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
             key={activeSection}
           >
             <Link
@@ -158,7 +180,7 @@ function Navbar() {
             </Link>
           </motion.div>
           <motion.div
-            whileHover={{ scale: 1.1 }} 
+            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
             key={activeSection}
           >
             <Link
@@ -174,7 +196,7 @@ function Navbar() {
             </Link>
           </motion.div>
           <motion.div
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
             key={activeSection}
           >
             <Link
@@ -190,7 +212,7 @@ function Navbar() {
             </Link>
           </motion.div>
           <motion.div
-            whileHover={{ scale: 1.1 }} 
+            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
             key={activeSection}
           >
             <Link
