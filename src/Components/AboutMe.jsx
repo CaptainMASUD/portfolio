@@ -12,7 +12,7 @@ function AboutMe() {
         <div>
           <h2 className="text-xl font-bold text-[#A8CD9F]">Masudul Alam</h2>
           <p className="text-lg text-[#D6DAC8] mb-2">Frontend App <br />and Web Developer</p>
-          <a href="https://github.com/masudiiucracker" target="_blank" rel="noopener noreferrer" className="text-white bg-gray-700 p-2 rounded-md duration-500   hover:bg-orange-600">GitHub</a>
+          <a href="https://github.com/CaptainMASUD" target="_blank" rel="noopener noreferrer" className="text-white bg-gray-700 p-2 rounded-md duration-500   hover:bg-orange-600">GitHub</a>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
