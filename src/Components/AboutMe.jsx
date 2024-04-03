@@ -11,10 +11,10 @@ function AboutMe() {
     <div className="container mx-auto p-8 grid place-content-center duration-500">
       <div className="flex md:flex-row flex-col items-center justify-center mb-8">
         <img src={a} alt="Profile" className="w-56 h-56 mb-3 rounded-full border-2 ring-2 ring-blue-500 border-gray-500 mr-4" />
-        <div>
+        <div className='grid place-content-center'>
           <h2 className="text-xl font-bold text-[#A8CD9F]">Masudul Alam</h2>
           <p className="text-lg text-[#D6DAC8] mb-2">Frontend App <br />and Web Developer</p>
-          <a href="https://github.com/CaptainMASUD" target="_blank" rel="noopener noreferrer" className="text-white bg-gray-700 p-2 rounded-md duration-500   hover:bg-orange-600">GitHub</a>
+          <a href="https://github.com/CaptainMASUD" target="_blank" rel="noopener noreferrer" className="text-white text-center bg-gray-700 p-2 rounded-md duration-500   hover:bg-orange-600">GitHub</a>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
