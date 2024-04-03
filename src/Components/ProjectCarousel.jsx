@@ -20,7 +20,7 @@ function ProjectCarousel() {
       title: "Shadow Movies",
       technologies: ["React", "Bootstrap"],
       githubLink: "/",
-      liveDemoLink: "https://www.example.com/project3",
+      liveDemoLink: "https://shadow-movies.vercel.app/",
       image: shadow 
     },
     {
