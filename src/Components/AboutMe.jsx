@@ -4,11 +4,13 @@ import c from '../images/developer/c.png';
 import d from '../images/developer/d.png';
 import u from '../images/developer/u.png';
 
+let a = "https://avatars.githubusercontent.com/u/108082819?v=4"
+
 function AboutMe() {
   return (
     <div className="container mx-auto p-8 grid place-content-center duration-500">
       <div className="flex md:flex-row flex-col items-center justify-center mb-8">
-        <img src={masud} alt="Profile" className="w-56 h-56 mb-3 rounded-full border-2 ring-2 ring-blue-500 border-gray-500 mr-4" />
+        <img src={a} alt="Profile" className="w-56 h-56 mb-3 rounded-full border-2 ring-2 ring-blue-500 border-gray-500 mr-4" />
         <div>
           <h2 className="text-xl font-bold text-[#A8CD9F]">Masudul Alam</h2>
           <p className="text-lg text-[#D6DAC8] mb-2">Frontend App <br />and Web Developer</p>
