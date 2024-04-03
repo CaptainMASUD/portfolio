@@ -15,8 +15,8 @@ function ProjectCard({ title, description, technologies, githubLink, liveDemoLin
           </div>
         </div>
         <div className="flex justify-between p-4">
-          <a href={githubLink} target="_blank" rel="noopener noreferrer" className="text-white bg-violet-500  max-w-20 text-center p-1 text-sm  rounded-md md:text-md cursor-pointer">GitHub</a>
-          <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className="text-white max-w-20 text-center bg-violet-500 p-1 text-sm md:text-md hover:drop-shadow-lg drop-shadow-sm rounded-md cursor-pointer hover:bg-[#F2613F]">Live Link</a>
+          <a href={githubLink} target="_blank" rel="noopener noreferrer" className="text-white bg-violet-500 duration-500 max-w-20 text-center p-1 text-sm  rounded-md md:text-md cursor-pointer">GitHub</a>
+          <a href={liveDemoLink} target="_blank" rel="noopener noreferrer" className="text-white max-w-20 text-center duration-500 bg-violet-500 p-1 text-sm md:text-md hover:drop-shadow-lg drop-shadow-sm rounded-md cursor-pointer hover:bg-[#F2613F]">Live Link</a>
         </div>
       </div>
     </div>
