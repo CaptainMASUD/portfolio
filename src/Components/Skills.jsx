@@ -6,6 +6,7 @@ import jsIcon from '../images/languages/js.png';
 import programingIcon from '../images/languages/programing.png';
 import java from '../images/languages/java.png';
 import physics from '../images/languages/physics.png';
+import python from '../images/languages/python.png';
 
 function Skills() {
   const skills = [
@@ -15,7 +16,8 @@ function Skills() {
     { name: 'CSS', icon: cssIcon },
     { name: 'JavaScript', icon: jsIcon },
     { name: 'Node.js', icon: programingIcon },
-    { name: 'React', icon: physics }
+    { name: 'React', icon: physics },
+    { name: 'python', icon: python },
   ];
 
   return (
