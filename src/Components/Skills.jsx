@@ -7,6 +7,9 @@ import programingIcon from '../images/languages/programing.png';
 import java from '../images/languages/java.png';
 import physics from '../images/languages/physics.png';
 import python from '../images/languages/python.png';
+import t from '../images/languages/t.svg';
+import bootstrap from '../images/languages/bootstrap.svg';
+import MongoDB from '../images/languages/mdb.svg';
 
 function Skills() {
   const skills = [
@@ -16,8 +19,12 @@ function Skills() {
     { name: 'CSS', icon: cssIcon },
     { name: 'JavaScript', icon: jsIcon },
     { name: 'Node.js', icon: programingIcon },
+    { name: 'Express js', icon: programingIcon },
+    { name: 'MongoDB', icon: MongoDB },
     { name: 'React', icon: physics },
     { name: 'python', icon: python },
+    { name: 'Tailwindcss', icon: t },
+    { name: 'Bootstrap', icon: bootstrap },
   ];
 
   return (
