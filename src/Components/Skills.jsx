@@ -15,6 +15,7 @@ function Skills() {
   const skills = [
     { name: 'C', icon: cIcon },
     { name: 'Java', icon: java },
+    { name: 'python', icon: python },
     { name: 'HTML', icon: htmlIcon },
     { name: 'CSS', icon: cssIcon },
     { name: 'JavaScript', icon: jsIcon },
@@ -22,7 +23,6 @@ function Skills() {
     { name: 'Express js', icon: programingIcon },
     { name: 'MongoDB', icon: MongoDB },
     { name: 'React', icon: physics },
-    { name: 'python', icon: python },
     { name: 'Tailwindcss', icon: t },
     { name: 'Bootstrap', icon: bootstrap },
   ];
