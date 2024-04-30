@@ -79,7 +79,7 @@ function App() {
           animate={isVisible.projects ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
         >
-          <h2 className="text-[3rem] font-bold flex justify-center text-green-500 text-center mb-10 mt-16" style={{ fontFamily: 'Caveat' }}>
+          <h2 className="text-[3rem]  flex justify-center text-green-500 text-center mb-10 mt-16" >
             Projects<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 mt-6 ml-2">
   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
 </svg>
