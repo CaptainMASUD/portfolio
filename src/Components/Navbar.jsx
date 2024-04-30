@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiBars3BottomRight } from 'react-icons/hi2'; // Import hamburger icon
+import { HiX } from 'react-icons/hi';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,32 +32,6 @@ function Navbar() {
     toggleMenu(); // Close the menu when a section is clicked
   };
 
-  useEffect(() => {
-    const underline = document.getElementById('animated-underline');
-    let animate = true;
-
-    const toggleAnimation = () => {
-      if (animate) {
-        underline.style.width = '100%'; // Expand the underline
-        setTimeout(() => {
-          underline.style.width = '0%'; // Shrink the underline after 3 milliseconds
-        }, 3000);
-      } else {
-        underline.style.width = '0%'; // Shrink the underline
-        setTimeout(() => {
-          underline.style.width = '100%'; // Expand the underline after 3 milliseconds
-        }, 3000);
-      }
-      animate = !animate;
-    };
-
-    toggleAnimation(); // Start the animation loop
-
-    const interval = setInterval(toggleAnimation, 6000); // Repeat the animation every 6 milliseconds (3 milliseconds for each animation phase)
-
-    return () => clearInterval(interval); // Clear the interval on component unmount
-  }, []);
-
   return (
     <nav className="bg-gray-800 text-white">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-6">
@@ -85,7 +60,11 @@ function Navbar() {
               className="text-white focus:outline-none"
               whileTap={{ scale: 0.9 }} // Add motion animation while tapping the button
             >
-              <HiBars3BottomRight className="w-6 h-6" /> 
+              {isMenuOpen ? ( // If menu is open, show cross icon
+                <HiX className="w-6 h-6" />
+              ) : ( // If menu is closed, show hamburger icon
+                <HiBars3BottomRight className="w-6 h-6" />
+              )}
             </motion.button>
           </div>
         ) : (
@@ -147,74 +126,82 @@ function Navbar() {
           </div>
         )}
       </div>
-      {isMobile && isMenuOpen && ( // If it's a mobile screen and the menu is open
-        <div className="md:hidden flex flex-col items-center justify-center space-y-4">
+      <AnimatePresence>
+        {isMobile && isMenuOpen && ( // If it's a mobile screen and the menu is open
           <motion.div
-            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
-            key={activeSection}
+            className="md:hidden flex flex-col items-center justify-center space-y-4"
+            initial={{ opacity: 0, y: -10 }} // Initial animation when menu opens
+            animate={{ opacity: 1, y: 0 }} // Animation when menu is open
+            exit={{ opacity: 0, y: -10 }} // Animation when menu closes
+            transition={{ duration: 0.3 }} // Transition duration
           >
-            <Link
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className={`block py-2 px-4 text-white ${activeSection === 'about' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
-              onClick={() => handleSetActive('about')}
+            <motion.div
+              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              key={activeSection}
             >
-              About
-            </Link>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
-            key={activeSection}
-          >
-            <Link
-              to="skills"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className={`block py-2 px-4 text-white ${activeSection === 'skills' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
-              onClick={() => handleSetActive('skills')}
+              <Link
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={`block py-2 px-4  text-white ${activeSection === 'about' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                onClick={() => handleSetActive('about')}
+              >
+                About
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              key={activeSection}
             >
-              Skills
-            </Link>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
-            key={activeSection}
-          >
-            <Link
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className={`block py-2 px-4 text-white ${activeSection === 'projects' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
-              onClick={() => handleSetActive('projects')}
+              <Link
+                to="skills"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={`block py-2 px-4 text-white ${activeSection === 'skills' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                onClick={() => handleSetActive('skills')}
+              >
+                Skills
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              key={activeSection}
             >
-              Projects
-            </Link>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1 }} // Add motion animation while hovering
-            key={activeSection}
-          >
-            <Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className={`block py-2 px-4 text-white ${activeSection === 'contact' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
-              onClick={() => handleSetActive('contact')}
+              <Link
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={`block py-2 px-4 text-white ${activeSection === 'projects' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                onClick={() => handleSetActive('projects')}
+              >
+                Projects
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              key={activeSection}
             >
-              Contact
-            </Link>
+              <Link
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={`block py-2 px-4 text-white ${activeSection === 'contact' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                onClick={() => handleSetActive('contact')}
+              >
+                Contact
+              </Link>
+            </motion.div>
           </motion.div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
