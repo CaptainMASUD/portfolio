@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+import { HiBars3BottomRight } from 'react-icons/hi2'; // Import hamburger icon
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,50 +57,35 @@ function Navbar() {
     return () => clearInterval(interval); // Clear the interval on component unmount
   }, []);
 
-
   return (
     <nav className="bg-gray-800 text-white">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-6">
         <div className="flex items-center">
-        <div className="relative">
-      <h1 className="text-2xl font-bold" style={{
-          fontFamily: "Edu NSW ACT Foundation",
-          background: "linear-gradient(90deg, #4F46E5 0%, #A86AF8 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          position: "relative"
-      }}>
-          CaptainMASUD
-      </h1>
-      <div
-        id="animated-underline"
-        className="absolute bottom-0 left-0 w-0 h-1 bg-blue-500"
-        style={{ transition: 'width 1s ease-in-out' }} // Adjusted transition duration to 1 second for slower animation
-      ></div>
-    </div>
+          <div className="relative">
+            <h1 className="text-2xl font-bold" style={{
+              fontFamily: "Edu NSW ACT Foundation",
+              background: "linear-gradient(90deg, #4F46E5 0%, #A86AF8 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              position: "relative"
+            }}>
+              CaptainMASUD
+            </h1>
+            <div
+              id="animated-underline"
+              className="absolute bottom-0 left-0 w-0 h-1 bg-blue-500"
+              style={{ transition: 'width 1s ease-in-out' }} // Adjusted transition duration to 1 second for slower animation
+            ></div>
+          </div>
         </div>
         {isMobile ? ( // If it's a mobile screen
           <div className="md:hidden">
-            <motion.button 
-              onClick={toggleMenu} 
+            <motion.button
+              onClick={toggleMenu}
               className="text-white focus:outline-none"
               whileTap={{ scale: 0.9 }} // Add motion animation while tapping the button
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                {isMenuOpen ? (
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M3 6h14v1H3V6zm0 5h14v1H3v-1zm0 5h14v1H3v-1z"
-                  />
-                ) : (
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M4 5h12v1H4V5zm0 4h12v1H4V9zm0 4h12v1H4v-1z"
-                  />
-                )}
-              </svg>
+              <HiBars3BottomRight className="w-6 h-6" /> 
             </motion.button>
           </div>
         ) : (

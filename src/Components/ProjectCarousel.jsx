@@ -6,6 +6,7 @@ import ProjectCard from './ProjectCard';
 import trabeltribe from '../images/project/trabeltribe.png'; 
 import shadow from '../images/project/shadow.png'; 
 import rock from '../images/project/rock.png'; 
+import hexa from '../images/project/hexa.png'; 
 
 function ProjectCarousel() {
   const projects = [
@@ -29,6 +30,13 @@ function ProjectCarousel() {
       githubLink: "https://github.com/example/project3",
       liveDemoLink: "https://rocks-pdf-converter.vercel.app/",
       image: rock // Pass the imported image
+    },
+    {
+      title: "H E X A",
+      technologies: ["React", "Tailwind"],
+      githubLink: "https://github.com/example/project3",
+      liveDemoLink: "https://hexa-zeta.vercel.app/",
+      image: hexa // Pass the imported image
     },
     // Add more projects as needed
   ];
