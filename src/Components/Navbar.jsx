@@ -37,20 +37,123 @@ function Navbar() {
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-6">
         <div className="flex items-center">
           <div className="relative">
-            <h1 className="text-2xl font-bold" style={{
-              fontFamily: "Edu NSW ACT Foundation",
-              background: "linear-gradient(90deg, #4F46E5 0%, #A86AF8 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              position: "relative"
-            }}>
-              CaptainMASUD
-            </h1>
-            <div
+            <motion.h1
+              className="text-2xl font-bold"
+              style={{
+                fontFamily: "Edu NSW ACT Foundation",
+                background: "linear-gradient(90deg, #4F46E5 0%, #A86AF8 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                position: "relative"
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
+            >
+               <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0, duration: 0.8 }}
+              >
+                C
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                a
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                p
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
+                t
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+              >
+                a
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0, duration: 0.8 }}
+              >
+                i
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+              >
+                n
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.4, duration: 0.8 }}
+              >
+                M
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6, duration: 0.8 }}
+              >
+                A
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.8, duration: 0.8 }}
+              >
+                S
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.0, duration: 0.8 }}
+              >
+                U
+              </motion.span>
+              <motion.span
+                style={{ display: "inline-block" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.2, duration: 0.8 }}
+              >
+                D
+              </motion.span>
+              {/* Repeat for other letters */}
+            </motion.h1>
+            <motion.div
               id="animated-underline"
-              className="absolute bottom-0 left-0 w-0 h-1 bg-blue-500"
-              style={{ transition: 'width 1s ease-in-out' }} // Adjusted transition duration to 1 second for slower animation
-            ></div>
+              className="absolute bottom-0 left-0 w-full h-1 bg-blue-500"
+              style={{ originX: 0, scaleX: 0 }}
+              animate={{ scaleX: [0, 1, 0], transition: { duration: 8, repeat: Infinity } }}
+            ></motion.div>
           </div>
         </div>
         {isMobile ? ( // If it's a mobile screen
@@ -77,7 +180,7 @@ function Navbar() {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className={`cursor-pointer ${activeSection === 'about' ? 'text-orange-500' : 'text-white'}`}
+                  className={`cursor-pointer ${activeSection === 'about' ? 'text-blue-500' : 'text-white'}`}
                   onClick={() => handleSetActive('about')}
                 >
                   About
@@ -90,7 +193,7 @@ function Navbar() {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className={`cursor-pointer ${activeSection === 'skills' ? 'text-orange-500' : 'text-white'}`}
+                  className={`cursor-pointer ${activeSection === 'skills' ? 'text-blue-500' : 'text-white'}`}
                   onClick={() => handleSetActive('skills')}
                 >
                   Skills
@@ -103,7 +206,7 @@ function Navbar() {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className={`cursor-pointer ${activeSection === 'projects' ? 'text-orange-500' : 'text-white'}`}
+                  className={`cursor-pointer ${activeSection === 'projects' ? 'text-blue-500' : 'text-white'}`}
                   onClick={() => handleSetActive('projects')}
                 >
                   Projects
@@ -116,7 +219,7 @@ function Navbar() {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className={`cursor-pointer ${activeSection === 'contact' ? 'text-orange-500' : 'text-white'}`}
+                  className={`cursor-pointer ${activeSection === 'contact' ? 'text-blue-500' : 'text-white'}`}
                   onClick={() => handleSetActive('contact')}
                 >
                   Contact
@@ -145,7 +248,7 @@ function Navbar() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={`block py-2 px-4  text-white ${activeSection === 'about' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                className={`block py-2 px-4  text-white ${activeSection === 'about' ? 'text-blue-500' : 'hover:bg-gray-700'}`}
                 onClick={() => handleSetActive('about')}
               >
                 About
@@ -161,7 +264,7 @@ function Navbar() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={`block py-2 px-4 text-white ${activeSection === 'skills' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                className={`block py-2 px-4 text-white ${activeSection === 'skills' ? 'text-blue-500' : 'hover:bg-gray-700'}`}
                 onClick={() => handleSetActive('skills')}
               >
                 Skills
@@ -177,7 +280,7 @@ function Navbar() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={`block py-2 px-4 text-white ${activeSection === 'projects' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                className={`block py-2 px-4 text-white ${activeSection === 'projects' ? 'text-blue-500' : 'hover:bg-gray-700'}`}
                 onClick={() => handleSetActive('projects')}
               >
                 Projects
@@ -193,7 +296,7 @@ function Navbar() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={`block py-2 px-4 text-white ${activeSection === 'contact' ? 'text-orange-500' : 'hover:bg-gray-700'}`}
+                className={`block py-2 px-4 text-white ${activeSection === 'contact' ? 'text-blue-500' : 'hover:bg-gray-700'}`}
                 onClick={() => handleSetActive('contact')}
               >
                 Contact
