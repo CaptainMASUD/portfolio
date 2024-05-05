@@ -8,7 +8,7 @@ function ProjectCard({ title, description, technologies, githubLink, liveDemoLin
         <div className="p-4">
           <h3 className=" text-md md:text-xl text-[#BE7B72] font-bold mb-2">{title}</h3>
           <p className="text-white">{description}</p>
-          <div className="flex flex-wrap items-center "> {/* Center the technologies horizontally and vertically */}
+          <div className="flex flex-wrap items-center "> 
             {technologies.map((tech, index) => (
               <div key={index} className="bg-violet-500 ml-2 rounded-full px-2 md:px-3 py-1 text-sm md:font-semibold text-white mr-2">{tech}</div>
             ))}
