@@ -39,7 +39,7 @@ function AboutMe() {
   }, []);
 
   return (
-    <div className="container mx-auto p-8 mt-20 grid place-content-center duration-500">
+    <div className=" mx-auto p-8 mt-20 grid place-content-center duration-500">
       <div className="flex md:flex-row flex-col items-center justify-center mb-8">
         <img src={profileImageLink} alt="Profile" className="w-56 h-56 mb-3 rounded-full border-2 ring-2 ring-blue-500 border-gray-500 mr-4" />
         <div className='grid place-content-center'>

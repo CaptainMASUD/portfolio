@@ -29,23 +29,23 @@ function ProjectCarousel() {
       technologies: ["React", "Tailwind"],
       githubLink: "https://github.com/example/project3",
       liveDemoLink: "https://rocks-pdf-converter.vercel.app/",
-      image: rock // Pass the imported image
+      image: rock 
     },
     {
       title: "H E X A",
       technologies: ["React", "Tailwind"],
       githubLink: "https://github.com/example/project3",
       liveDemoLink: "https://hexa-zeta.vercel.app/",
-      image: hexa // Pass the imported image
+      image: hexa 
     },
-    // Add more projects as needed
+    
   ];
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Display three cards at once
+    slidesToShow: 3, 
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -73,17 +73,17 @@ function ProjectCarousel() {
   };
 
   return (
-    <div className="px-4"> {/* Added padding to create space around the slider */}
+    <div className="px-4"> 
       <Slider {...settings} className="slick-slider">
         {projects.map((project, index) => (
-          <div key={index} className="px-2"> {/* Added padding to create space around each card */}
+          <div key={index} className="px-2"> 
             <ProjectCard
               title={project.title}
               description={project.description}
               technologies={project.technologies}
               githubLink={project.githubLink}
               liveDemoLink={project.liveDemoLink}
-              image={project.image} // Pass the image to the ProjectCard component
+              image={project.image} 
             />
           </div>
         ))}

@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiBars3BottomRight } from 'react-icons/hi2'; // Import hamburger icon
-import { HiX } from 'react-icons/hi';
+import { HiBars3BottomRight } from 'react-icons/hi2'; 
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [activeSection, setActiveSection] = useState('about'); // Set default active section to 'about'
+  const [activeSection, setActiveSection] = useState('about'); 
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Check if screen width is less than or equal to 768px (mobile size)
+      setIsMobile(window.innerWidth <= 768); 
     };
 
-    handleResize(); // Call once to set the initial state
+    handleResize(); 
 
-    window.addEventListener('resize', handleResize); // Listen for resize events
+    window.addEventListener('resize', handleResize); 
 
     return () => {
-      window.removeEventListener('resize', handleResize); // Remove the event listener on component unmount
+      window.removeEventListener('resize', handleResize); 
     };
   }, []);
 
@@ -29,7 +28,7 @@ function Navbar() {
 
   const handleSetActive = (to) => {
     setActiveSection(to);
-    toggleMenu(); // Close the menu when a section is clicked
+    toggleMenu(); 
   };
 
   return (
@@ -146,7 +145,7 @@ function Navbar() {
               >
                 D
               </motion.span>
-              {/* Repeat for other letters */}
+              
             </motion.h1>
             <motion.div
               id="animated-underline"
@@ -156,16 +155,16 @@ function Navbar() {
             ></motion.div>
           </div>
         </div>
-        {isMobile ? ( // If it's a mobile screen
+        {isMobile ? ( 
           <div className="md:hidden">
             <motion.button
               onClick={toggleMenu}
               className="text-white focus:outline-none"
-              whileTap={{ scale: 0.9 }} // Add motion animation while tapping the button
+              whileTap={{ scale: 0.9 }} 
             >
-              {isMenuOpen ? ( // If menu is open, show cross icon
+              {isMenuOpen ? ( 
                 <HiX className="w-6 h-6" />
-              ) : ( // If menu is closed, show hamburger icon
+              ) : ( 
                 <HiBars3BottomRight className="w-6 h-6" />
               )}
             </motion.button>
@@ -230,16 +229,16 @@ function Navbar() {
         )}
       </div>
       <AnimatePresence>
-        {isMobile && isMenuOpen && ( // If it's a mobile screen and the menu is open
+        {isMobile && isMenuOpen && ( 
           <motion.div
             className="md:hidden flex flex-col items-center justify-center space-y-4"
-            initial={{ opacity: 0, y: -10 }} // Initial animation when menu opens
-            animate={{ opacity: 1, y: 0 }} // Animation when menu is open
-            exit={{ opacity: 0, y: -10 }} // Animation when menu closes
-            transition={{ duration: 0.3 }} // Transition duration
+            initial={{ opacity: 0, y: -10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.div
-              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              whileHover={{ scale: 1.1 }} 
               key={activeSection}
             >
               <Link
@@ -255,7 +254,7 @@ function Navbar() {
               </Link>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              whileHover={{ scale: 1.1 }} 
               key={activeSection}
             >
               <Link
@@ -271,7 +270,7 @@ function Navbar() {
               </Link>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              whileHover={{ scale: 1.1 }} 
               key={activeSection}
             >
               <Link
@@ -287,7 +286,7 @@ function Navbar() {
               </Link>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.1 }} // Add motion animation while hovering
+              whileHover={{ scale: 1.1 }} 
               key={activeSection}
             >
               <Link
